@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text as DefaultText, View as DefaultView } from 'react-native';
+import { Text as DefaultText, View as DefaultView, TouchableOpacity, StyleSheet } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -39,3 +39,71 @@ export function View(props: ViewProps) {
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
+
+
+
+
+export const AppButton = ({ onPress ,  title } : any) => {
+    return (
+      <TouchableOpacity style = {style.container} onPress = {onPress}>
+        <Text style = {style.text}>{title}</Text>
+      </TouchableOpacity>
+    )
+}
+
+
+export const PickerButton = ({ onPress , title } : any) => {
+  return (
+    <TouchableOpacity style = {p_style.container} onPress = {onPress}>
+      <Text style = {p_style.text}>{title}</Text>
+    </TouchableOpacity>
+  )
+}
+
+
+
+const p_style =  StyleSheet.create({
+  container : {
+    width : "100%",
+    justifyContent : "center" , 
+    padding  : 16 , 
+    elevation : 8 , 
+    backgroundColor : "#fff" ,
+    borderRadius : 8 , 
+    paddingVertical : 10, 
+    paddingHorizontal : 30 , 
+    marginTop : 20,
+    shadowOffset : {  width : 0 , height : 0 } ,
+    shadowColor : "#fff" , 
+    shadowRadius : 0 , 
+    shadowOpacity : 0 , 
+    borderWidth : 1,
+    borderColor:"black",
+  } , 
+  text : {
+    fontSize : 16 , 
+    color : "black" , 
+    fontWeight : "400" , 
+   // alignSelf : "center" ,
+    textAlign : "left" 
+  }
+});
+
+const style =  StyleSheet.create({
+  container : {
+    justifyContent : "center" , 
+    padding  : 16 , 
+    elevation : 8 , 
+    backgroundColor : "blue" ,
+    borderRadius : 8 , 
+    paddingVertical : 10, 
+    paddingHorizontal : 30 , 
+    marginTop : 20,
+  } , 
+  text : {
+    fontSize : 16 , 
+    color : "#fff" , 
+    fontWeight : "bold" , 
+    alignSelf : "center" , 
+  }
+});
